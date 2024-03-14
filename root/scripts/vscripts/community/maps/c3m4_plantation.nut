@@ -17,17 +17,11 @@ function DoRoundFixes()
 	make_clip( "_commentary_floorcollapse", "Survivors", 1, "-8 -8 0", "25 115 172", "2600 -368 417" );
 	make_brush( "_defibtrick_undermap_dead", "-16 -58 -120", "24 54 0", "688 122 248" );
 
-	if ( g_BaseMode != "coop" && g_BaseMode != "realism" )
-	{
-		make_clip( "_booster_mansionroofa", "Survivors", 1, "-204 -23 0", "212 105 533", "1660 527 640" );
-		make_clip( "_booster_mansionroofb",	"Survivors", 1,	"-584 -560 -255.5", "584 560 255.5", "1664 -56 896" );
-		make_clip( "_booster_mansionroofc", "Survivors", 1, "-76 -231.5 -255.5", "76 231.5 255.5", "2324 -128 896" );
-		make_clip( "_booster_mansionroofd", "Survivors", 1, "-172 -243.5 0", "172 243.5 533", "908 -140 896" );
-		make_clip( "_stuckwarp_understairs", "Everyone", 1, "4 -55 -25", "39 57 21", "2816 119 162" );
-		make_clip( "_booster_scaffoldpins", "Survivors", 1, "-199 -1 0", "146 9 909", "527 177 243" );
-	}
 	if ( g_BaseMode == "coop" || g_BaseMode == "realism" )
 	{
+		devchap( "BASE COOP" );
+		
+		con_comment( "LOGIC:\tGodspot enabled." );
 		// Get nav tiles by position because IDS can change if edited later on
 		local navMain = NavMesh.GetNearestNavArea(Vector(2377.853516, 161.838699, 194.000000), 16, true, true);
 		local navConnection1 = NavMesh.GetNearestNavArea(Vector(2300.000000, 162.500000, 131.307587), 16, true, true);
@@ -50,10 +44,18 @@ function DoRoundFixes()
 		// FIXES
 
 		make_clip( "_nav_shelvings", "Survivors", 1, "-48 -56 0", "65 56 63", "2127 -504 345" );
+		make_clip( "_point_of_no_return", "Survivors", 1, "-168 -164 12", "128 92 196", "2064 -412 396" );
 
 		con_comment( "FIX:\tPoint-of-no-return clip Enabled instantly to block Survivalists from boosting out." );
-
-		EntFire( g_UpdateName + "_point_of_no_return", "Enable" );
+	}
+	if ( g_BaseMode != "coop" && g_BaseMode != "realism" )
+	{
+		make_clip( "_booster_mansionroofa", "Survivors", 1, "-204 -23 -255.5", "212 105 255.5", "1660 527 896" );
+		make_clip( "_booster_mansionroofb",	"Survivors", 1,	"-584 -560 -255.5", "584 560 255.5", "1664 -56 896" );
+		make_clip( "_booster_mansionroofc", "Survivors", 1, "-168 -455.5 -255.5", "168 455.5 255.5", "2416 -352 896" );
+		make_clip( "_booster_mansionroofd", "Survivors", 1, "-172 -243.5 -255.5", "172 243.5 255.5", "908 -140 896" );
+		make_clip( "_stuckwarp_understairs", "Everyone", 1, "4 -55 -25", "39 57 21", "2816 119 162" );
+		make_clip( "_booster_scaffoldpins", "Survivors", 1, "-199 -1 0", "146 9 909", "527 177 243" );
 	}
 
 	if ( HasPlayerControlledZombies() )
