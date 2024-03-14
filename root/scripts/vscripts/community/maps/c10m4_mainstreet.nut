@@ -19,6 +19,7 @@ PrecacheModel( "models/props_vehicles/cara_95sedan_glass.mdl" );
 
 function DoRoundFixes()
 {
+	make_clip(	"_church_wall_lmpclip1",	"Survivors",	1,	"-118.5 -6.5 -57",	"118.5 6.5 57",		"-2871 -754 1" );
 	make_clip(	"_commonhop_bankwindow",	"Survivors",	1,	"-120 -5 0",		"120 17 1612",		"-672 -4351 176" );
 	make_clip(	"_cliprework_church",		"Survivors",	1,	"-256 -16 -164",	"256 16 1040",		"-3010 30 720.9" );
 	make_clip(	"_cliprework_buses",		"Survivors",	1,	"-160 -6 -164",		"160 6 620",		"-1437 -461 1124" );
@@ -33,7 +34,8 @@ function DoRoundFixes()
 	make_clip( "_cliprework_windows", "Survivors", 1, "-16 -304 -20", "0 288 68", "2688 -2136 372" );
 	make_clip( "_cliprework_balcony", "Survivors", 1, "-86 -50 0", "84 46 1392", "2822 -1694 336" );
 	make_clip( "_cliprework_awning", "Survivors", 1, "-68 -103 -68", "43 107 1431", "2885 -1580 297" );
-	make_trighurt( "_instakill_deathcharger", "Survivor", "-256 -453 -17", "256 453 0", "-2449 122 -43" );
+	make_trighurt( "_instakill_deathcharger1", "Survivor", "-270 -354 -8", "270 354 8", "-2462 -34 56" );
+	make_trighurt( "_instakill_deathcharger2", "Survivor", "-270 -354 -8", "270 354 8", "-2462 -34 56" ); // This is an intentional duplicate to stop the charger infinite recharge bug
 	patch_spawninfront( "288 -5284 93", "0 -96 0", "544 96 17" );
 
 	if ( g_BaseMode == "versus" )
@@ -42,12 +44,12 @@ function DoRoundFixes()
 
 		// FIXES
 
-		make_clip( "_cliprework_trucknuke", "Survivors", 1, "-180 -60 -2", "115 60 1624", "693 -1867 105", "0 43 0" );
-
-		make_clip( "_cliprework_eventskip1", "Survivors", 1, "-55 -1 0", "58 1 1588", "852 -2433 140" );
-		make_clip( "_cliprework_eventskip2", "Survivors", 1, "-209 -2 0", "192 2 1588", "661 -2569 140", "0 45 0" );
-		make_clip( "_cliprework_eventskip3", "Survivors", 1, "-156 -1 0", "141 1 1588", "372 -2717 140" );
-		make_clip( "_cliprework_eventskip4", "Survivors", 1, "-26 -59 0", "-24 41 1588", "242 -2757 140" );
+		make_clip( "_church_wall_lmpclip2", "Survivors", 1, "-112 -11.5 -835", "112 11.5 835", "-2872 -759 893" );
+		make_clip( "_church_pillara", "Survivors", 1, "-16 -17 -892", "16 17 892", "-3000 -761 836" );
+		make_clip( "_church_pillarb", "Survivors", 1, "-16 -17 -892", "16 17 892", "-3144 -761 836" );
+		make_clip( "_church_pillarc", "Survivors", 1, "-16 -17 -892", "16 17 892", "-3448 -761 836" );
+		make_clip( "_boxtruck_eventskip", "Survivors", 1, "-103 -125.5 -820.5", "103 125.5 820.5", "114 -3025 908" );
+		make_clip( "_cliprework_trucknuke", "Survivors", 1, "-44 -48 -50", "44 48 70", "580 -1972 2", "0 43 0" );
 	}
 	if ( g_BaseMode == "survival" )
 	{
@@ -91,7 +93,6 @@ function DoRoundFixes()
 		make_clip( "_permstuck_hellcade", "SI Players", 1, "-8 -216 0", "8 216 17", "-5115 -1028 -49" );
 		make_clip( "_ladder_eventskybridge_clip", "SI Players", 1, "-11 -23 0", "2 46 8", "-1314 -4766 296" );
 		make_clip( "_ladder_starthilltop_clip", "SI Players", 1, "-16 -8 0", "16 8 2", "-4620 -1900 520", "0 -17.7 0" );
-		make_clip( "_losblocker_deliveryclip", "Survivors", 1, "-57 -113 0", "56 171 1781", "583 -2463 -52", "0 -20 0" );
 		make_clip( "_meticulous_funcinfclip01", "SI Players", 1, "-908 -17 -440", "114 17 1342", "-3906 -3153 384" );
 		make_clip( "_meticulous_funcinfclip02", "SI Players", 1, "-17 -595 -731", "17 737 1051", "-4935 -2560 675", "0 13 0" );
 		make_clip( "_meticulous_funcinfclip03", "SI Players", 1, "-679 -581 -81", "635 120 1169", "2038 -3044 560" );
