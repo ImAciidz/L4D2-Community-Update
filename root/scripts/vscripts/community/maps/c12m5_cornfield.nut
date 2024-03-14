@@ -36,6 +36,31 @@ function DoRoundFixes()
 		make_clip( "_cooponly_idle_warp", "Survivors", 1, "-81 -37 0", "55 35 1102", "8849 3493 760" );
 		make_clip( "_nav_and_stuckwarp", "Everyone", 1, "-45 -2 -62", "163 6 58", "6485 1090 308" );
 	}
+	if ( g_BaseMode == "coop" || g_BaseMode == "realism" )
+	{
+		devchap( "BASE COOP" );
+
+		con_comment( "LOGIC:\tGodspot enabled." );
+		// Get nav tiles by position because IDS can change if edited later on
+		// CheckLOS and CheckGround set to false as it did not work otherwise here
+		local navMain = NavMesh.GetNearestNavArea(Vector(7187.500000, 3262.500000, 196.687500), 16, false, false);
+		local navConnection1 = NavMesh.GetNearestNavArea(Vector(7225.000000, 3237.500000, 196.687500), 16, false, false);
+		local navConnection2 = NavMesh.GetNearestNavArea(Vector(7225.000000, 3275.000000, 196.687500), 16, false, false);
+		local navConnection3 = NavMesh.GetNearestNavArea(Vector(7125.000000, 3287.500000, 196.687500), 16, false, false);
+		navConnection1.Disconnect(navMain);
+		navConnection2.Disconnect(navMain);
+		navConnection3.Disconnect(navMain);
+	}
+	if ( g_BaseMode == "survival" )
+	{
+		devchap( "BASE SURVIVAL" );
+
+		// FIXES
+
+		make_clip( "_point_of_no_return", "Survivors", 1, "-148 -16 0", "148 26 1660", "9017 3511 202" );
+
+		con_comment( "FIX:\tPoint-of-no-return clip Enabled instantly to block Survivalists from boosting out." );
+	}
 	if ( HasPlayerControlledZombies() )
 	{
 		kill_funcinfclip( 3833.37 );		// Delete clip blocking access to vast start perimeter and one-way drop
